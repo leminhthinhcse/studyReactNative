@@ -18,6 +18,8 @@ import Weather from './screen/weather/Weather';
 import Widgets from './screen/Widgets';
 import Settings from './screen/Settings';
 
+import OfflineNotice from './screen/OfflineNotice';
+
 import Afternoon from './src/after_noon.png';
 import Sun from './src/Sun.png';
 
@@ -84,7 +86,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={{ flex: 1 }}>
-      
+        <OfflineNotice/>
         <View style={{ flex: 1 }}>
         {/* <ImageBackground source={Afternoon} style={{width: '100%', height: '100%'}} > */}
           {this.renderScreen(this.state.activeTab)}
