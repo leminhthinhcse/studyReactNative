@@ -18,30 +18,30 @@ export default class Temperature extends React.Component {
             datasets: [
               {
                 data: [
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
+                  20,
+                  30,
+                  31,
+                  32,
+                  24,
+                  26,
+                  35,
+                  38,
+                  26,
+                  30,
+                  31,
+                  32,
+                  24,
+                  26,
+                  35,
+                  38,
+                  26,
+                  30,
+                  31,
+                  32,
+                  24,
+                  26,
+                  35,
+                  38
                 ]
               }
             ]
@@ -58,7 +58,7 @@ export default class Temperature extends React.Component {
             //   borderRadius: 16
             }
           }}
-          
+          // bezier
           style={{
             marginVertical: 8,
             // borderRadius: 16

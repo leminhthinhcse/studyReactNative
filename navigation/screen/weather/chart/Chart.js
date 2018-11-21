@@ -6,7 +6,7 @@
  * @flow
  */
 import React, { Component } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import BottomNavigation, {
   IconTab,
   Badge,
@@ -30,7 +30,7 @@ export default class Chart extends Component {
     this.state = {
       activeTab: "temperature",
       activeTab: this.tabs[0].key,
-      activeScreen: "temperature"
+      activeScreen: "temperature",
     };
   }
 
@@ -83,6 +83,10 @@ export default class Chart extends Component {
       //   return(<Humidity/>);
     }
   }
+  
+  setTab = selectedTab => {
+    this.setState({ selectedTab });
+  };
 
   render() {
     return (
@@ -98,6 +102,7 @@ export default class Chart extends Component {
           renderTab={this.renderTab}
           useLayoutAnimation
         />
+      
         <View style={styles.viewDetail}>
           {this.renderScreen(this.state.activeScreen)}
         </View>
@@ -107,6 +112,7 @@ export default class Chart extends Component {
 }
 
 const styles = StyleSheet.create({
+
   collapseHeader: {
     flexDirection: "row",
     alignItems: "center",
