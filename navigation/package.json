@@ -9,6 +9,7 @@
   "dependencies": {
     "accordion-collapse-react-native": "^0.1.7",
     "axios": "^0.18.0",
+    "firebase": "^5.5.9",
     "native-base": "^2.8.1",
     "react": "16.6.1",
     "react-native": "0.57.5",
