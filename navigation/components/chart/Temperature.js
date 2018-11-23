@@ -7,45 +7,27 @@ import {
   ProgressChart,
   ContributionGraph
 } from "react-native-chart-kit";
+import {firebaseApp} from '../firebaseConfig.js';
+
+import {data} from './data';
 
 export default class Temperature extends React.Component {
+  constructor(props) {
+    super(props);
+    this.database1 = firebaseApp.database();
+    this.database1.ref().on('value', function(snapshot) {
+      let temp = snapshot.val().Temperature;
+      let length = Object.keys(temp).length;
+      console.log(length);
+    });
+    
+  }
+
   render() {
     return (
       <ScrollView horizontal={true}>
         <LineChart
-          data={{
-            labels: ["01", "02", "03", "04", "05", "06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
-            datasets: [
-              {
-                data: [
-                  20,
-                  30,
-                  31,
-                  32,
-                  24,
-                  26,
-                  35,
-                  38,
-                  26,
-                  30,
-                  31,
-                  32,
-                  24,
-                  26,
-                  35,
-                  38,
-                  26,
-                  30,
-                  31,
-                  32,
-                  24,
-                  26,
-                  35,
-                  38
-                ]
-              }
-            ]
-          }}
+          data={data}
           width= {1500}//{Dimensions.get("window").width} // from react-native
           height={220}
           chartConfig={{

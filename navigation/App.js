@@ -14,11 +14,11 @@ import BottomNavigation, {
   ShiftingTab
 } from 'react-native-material-bottom-navigation'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Weather from './screen/weather/Weather';
+import Weather from './screen/Weather';
 import Widgets from './screen/Widgets';
 import Settings from './screen/Settings';
 
-import OfflineNotice from './screen/OfflineNotice';
+import OfflineNotice from './components/OfflineNotice';
 
 import Afternoon from './src/after_noon.png';
 import Sun from './src/Sun.png';

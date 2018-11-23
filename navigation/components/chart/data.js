@@ -1,17 +1,39 @@
 // Mock data object used for LineChart and BarChart
 
+
+
 const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [{
+  labels: ["01", "02", "03", "04", "05", "06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+  datasets: [
+    {
       data: [
-        Math.random() * 100,
-        Math.random() * 100,
-        Math.random() * 100,
-        Math.random() * 100,
-        Math.random() * 100,
-        Math.random() * 100
+        20,
+        30,
+        31,
+        32,
+        24,
+        26,
+        35,
+        38,
+        26,
+        30,
+        31,
+        32,
+        24,
+        26,
+        35,
+        38,
+        26,
+        30,
+        31,
+        32,
+        24,
+        26,
+        35,
+        38
       ]
-    }]
+    }
+  ]
   }
 
   // Mock data object used for Contribution Graph

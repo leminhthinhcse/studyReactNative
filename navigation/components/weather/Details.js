@@ -1,7 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import axios from 'axios';
+
+
+import {firebaseApp} from '../firebaseConfig.js';
+
+
 
 export default class Details extends React.Component {
     constructor(props) {
@@ -11,6 +15,8 @@ export default class Details extends React.Component {
           humid: "...",
           light: "...",
         };
+        this.database1 = firebaseApp.database();
+        this.getData = this.getData.bind(this);
       }
     
       componentDidMount(){
@@ -18,15 +24,18 @@ export default class Details extends React.Component {
       }
     
       getData() {
-         axios.get('https://immense-reaches-55030.herokuapp.com/get/temp').then(e=>{
-            this.setState({temp: e.data});
-          });
-         axios.get('https://immense-reaches-55030.herokuapp.com/get/humid').then(e=>{
-            this.setState({humid: e.data});
-          });
-          axios.get('https://immense-reaches-55030.herokuapp.com/get/light').then(e=>{
-            this.setState({light: e.data});
-          });
+        const that = this;
+          this.database1.ref().on('value', function(snapshot) {
+            let humid = snapshot.val().Humidity[Object.keys(snapshot.val().Humidity)[Object.keys(snapshot.val().Humidity).length - 1]];
+            let temp = snapshot.val().Temperature[Object.keys(snapshot.val().Temperature)[Object.keys(snapshot.val().Temperature).length - 1]];
+            let light = snapshot.val().Light[Object.keys(snapshot.val().Light)[Object.keys(snapshot.val().Light).length - 1]];
+            
+            // console.log(Object.keys(snapshot.val().Light)[0]);
+
+            that.setState({
+                humid, temp, light
+            });
+        });
       }
       
     componentDetails(icon,text,value){
