@@ -11,7 +11,7 @@ import {firebaseApp} from '../firebaseConfig.js';
 
 import {data} from './data';
 
-export default class Temperature extends React.Component {
+export default class Humidity extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Temperature extends React.Component {
           datasets: [{data:[0]}],
         }
       });
-      let  temp = await snapshot.val().Temperature;
+      let  temp = await snapshot.val().Humidity;
       const k = await Object.keys(temp);
       let length = await k.length;
       let date = await new Date(parseInt(k[length-1])).getDate();

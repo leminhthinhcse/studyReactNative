@@ -23,6 +23,8 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import Temperature from "./Temperature";
+import Illuminance from './Illuminance';
+import Humidity from './Humidity';
 
 export default class Chart extends Component {
   constructor(props) {
@@ -77,10 +79,10 @@ export default class Chart extends Component {
     switch (nameScreen) {
       case "temperature":
         return <Temperature />;
-      // case "illuminance":
-      //   return(<Illuminance/>);
-      // case "humidity":
-      //   return(<Humidity/>);
+      case "illuminance":
+        return(<Illuminance/>);
+      case "humidity":
+        return(<Humidity/>);
     }
   }
   
@@ -104,7 +106,7 @@ export default class Chart extends Component {
         />
       
         <View style={styles.viewDetail}>
-          {this.renderScreen(this.state.activeScreen)}
+          {this.renderScreen(this.state.activeTab)}
         </View>
       </View>
     );
