@@ -53,7 +53,7 @@ export default class Temperature extends React.Component {
         }
       }
 
-      for (i = 1; i<24;i++){
+      for (i = 0; i<24;i++){
         if(g[i]){
             that.state.data.push(g[i]/c[i]);
             that.state.labels.push(i+"");
@@ -70,6 +70,7 @@ export default class Temperature extends React.Component {
         labels: that.state.labels,
         datasets: [{data: that.state.data}]}
       });
+      
       await console.log(that.state.dataTemp);
       await console.log(data);
     });

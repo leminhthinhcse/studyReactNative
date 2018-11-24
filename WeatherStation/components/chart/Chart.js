@@ -30,7 +30,6 @@ export default class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: "temperature",
       activeTab: this.tabs[0].key,
       activeScreen: "temperature",
     };
