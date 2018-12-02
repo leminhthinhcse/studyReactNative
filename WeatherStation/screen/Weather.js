@@ -54,7 +54,7 @@ export default class Weather extends Component {
     return (
       <Container>
         <Content>
-          <View style={styles.hienNhietDo}>
+          {/* <View style={styles.hienNhietDo}>
             <ImageBackground
               source={imgSrc}
               style={{ width: "100%", height: "100%" }}
@@ -64,7 +64,7 @@ export default class Weather extends Component {
                 &#9673; Data got on {''+this.state.timeGot}
               </Text>
             </ImageBackground>
-          </View>
+          </View> */}
           <Details />
 
           <Chart />

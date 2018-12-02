@@ -26,20 +26,20 @@ import Sun from './src/Sun.png';
 type Props = {};
 export default class App extends Component<Props> {
   state = {
-    activeTab: 'weather'
+    activeTab: 'control'
   }
 
   tabs = [
     {
       key: 'weather',
-      label: 'Weather',
+      label: 'Weather Details',
       barColor: '#388E3C',
       pressColor: 'rgba(255, 255, 255, 0.16)',
       icon: 'weather-cloudy'
     },
     {
-      key: 'widgets',
-      label: 'Light control',
+      key: 'control',
+      label: 'Controls',
       barColor: '#00695C',
       pressColor: 'rgba(255, 255, 255, 0.16)',
       icon: 'lightbulb-outline'
@@ -54,7 +54,7 @@ export default class App extends Component<Props> {
   ]
 
   state = {
-    activeTab: this.tabs[0].key
+    activeTab: this.tabs[1].key
   }
 
   renderIcon = icon => ({ isActive }) => (
@@ -76,7 +76,7 @@ export default class App extends Component<Props> {
     switch (nameScreen){
       case "weather":
         return( <Weather/>);
-      case "widgets":
+      case "control":
         return(<Widgets />);
       case "settings":
         return(<Settings/>);
