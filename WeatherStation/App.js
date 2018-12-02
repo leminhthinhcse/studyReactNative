@@ -39,14 +39,14 @@ export default class App extends Component<Props> {
     },
     {
       key: 'widgets',
-      label: 'Widgets',
+      label: 'Light control',
       barColor: '#00695C',
       pressColor: 'rgba(255, 255, 255, 0.16)',
-      icon: 'widgets'
+      icon: 'lightbulb-outline'
     },
     {
       key: 'settings',
-      label: 'Settings',
+      label: 'Setting',
       barColor: '#1565C0',
       pressColor: 'rgba(255, 255, 255, 0.16)',
       icon: 'settings-outline'
@@ -62,7 +62,7 @@ export default class App extends Component<Props> {
   )
 
   renderTab = ({ tab, isActive }) => (
-    <ShiftingTab
+    <FullTab
       isActive={isActive}
       // showBadge={tab.key === 'widgets'}
       // renderBadge={() => <Badge>3</Badge>}

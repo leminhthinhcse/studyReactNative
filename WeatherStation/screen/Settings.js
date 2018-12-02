@@ -6,8 +6,8 @@ export default class Weather extends React.Component {
         return(
             <ScrollView  style={{padding:20,}}>
                 <View>
-                    <Text style={styles.textHeader}>Settings</Text>
-                    <Text style={{color:'gray'}}>Take your choice</Text>
+                    <Text style={styles.textHeader}>Systerm Information</Text>
+                    <Text style={{color:'gray'}}>Weather Station</Text>
                 </View>
                 <View>
                     <View>
@@ -15,11 +15,11 @@ export default class Weather extends React.Component {
                     </View>
                     <View>
                         <Text style={styles.h4}>Temperature</Text>
-                        <Text style={{color:'gray'}}>Current Selected: &#8451;</Text>
+                        <Text style={{color:'gray'}}>Current Information: &#8451;</Text>
                     </View>
                     <View>
                         <Text style={styles.h4}>Network Refresh</Text>
-                        <Text style={{color:'gray'}}>Current Selected: 1 hour</Text>
+                        <Text style={{color:'gray'}}>Current Information: Real-time</Text>
                     </View>
                 </View>
                 <View>

@@ -6,7 +6,7 @@ import Chart from "../components/chart/Chart";
 
 import {firebaseApp} from '../components/firebaseConfig';
 
-import Sun from "../src/Sun.png";
+import Sun from "../src/after_noon.png";
 import Night from "../src/night.png";
 
 export default class Weather extends Component {
