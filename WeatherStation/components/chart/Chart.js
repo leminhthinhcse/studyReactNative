@@ -8,18 +8,9 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import BottomNavigation, {
-  IconTab,
-  Badge,
-  FullTab,
-  ShiftingTab
+  IconTab
 } from "react-native-material-bottom-navigation";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph
-} from "react-native-chart-kit";
+
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import Temperature from "./Temperature";

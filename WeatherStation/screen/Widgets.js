@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Container, Header, Content, Text, Accordion } from "native-base";
-import { View, StyleSheet, ImageBackground } from "react-native";
-import Details from "../components/weather/Details";
-import Chart from "../components/chart/Chart";
+import { Container, Content, Text} from "native-base";
+import { View, StyleSheet, ImageBackground, Switch } from "react-native";
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {firebaseApp} from '../components/firebaseConfig';
 
@@ -16,6 +16,8 @@ export default class Weather extends Component {
       temp: "...",
       curTime: new  Date().getHours().toLocaleString(),
       timeGot: "...",
+      activeSwitch: true,
+      threshold:"",
     };
     this.changeBackground = this.changeBackground.bind(this);
     this.database1 = firebaseApp.database();
@@ -29,10 +31,20 @@ export default class Weather extends Component {
   getData() {
     const that = this;
       this.database1.ref().on('value', function(snapshot) {
-        let humid = snapshot.val().Humidity[Object.keys(snapshot.val().Humidity)[Object.keys(snapshot.val().Humidity).length - 1]];
         let temp = snapshot.val().Temperature[Object.keys(snapshot.val().Temperature)[Object.keys(snapshot.val().Temperature).length - 1]];
-        let light = snapshot.val().Light[Object.keys(snapshot.val().Light)[Object.keys(snapshot.val().Light).length - 1]];
-        
+        let control = snapshot.val().Control;
+        let threshold = snapshot.val().Threshold;
+        // console.log(control);
+        that.setState({control,threshold});
+        if(control == 1) {
+          that.setState({
+            activeSwitch: true,
+          })
+        } else {
+          that.setState({
+            activeSwitch: false,
+          })
+        }
         let timeGot = new Date(parseInt(Object.keys(snapshot.val().Temperature)[Object.keys(snapshot.val().Temperature).length - 1]));
 
         that.setState({
@@ -46,6 +58,10 @@ export default class Weather extends Component {
       return Sun;
     }
       return Night;
+  }
+
+  callbackFunction=()=>{
+
   }
 
   render() {
@@ -65,6 +81,35 @@ export default class Weather extends Component {
               </Text>
             </ImageBackground>
           </View>
+
+          <View style={{height:100, padding: 10, flex: 1}}>
+            <View style={{backgroundColor:'#434e58fe', height:"70%", flexDirection: "row",borderRadius:5, elevation: 10}}>
+                <View style={{width:"10%",justifyContent: 'center', alignItems: 'center'}}>
+                    <Icon size={24} color="white" name="lightbulb" />
+                </View>
+                <View style={{width:"65%", justifyContent: 'center',textAlign:"left"}}>
+                    <Text style={{color: "white"}}>{`Lightning`}</Text>
+                </View>
+                <View style={{width:"25%", justifyContent: 'center'}}>
+                    <Switch 
+                      onValueChange={ (val) => {
+                        let k ="";
+                        if(val){
+                          k="1";
+
+                        } else {k="0";}
+                        this.database1.ref().update({
+                          Control: k,
+                        });
+                    }} 
+                      value={ this.state.activeSwitch} 
+                      trackColor = {{false: "black", true: "white"}}
+                    /> 
+                    { this.state.activeSwitch === true ? console.log('view1') : console.log('view2') }
+                </View>
+            </View>
+          </View>
+
         </Content>
       </Container>
     );

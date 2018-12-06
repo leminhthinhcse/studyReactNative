@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Header, Content, Text, Accordion } from "native-base";
-import { View, StyleSheet, ImageBackground } from "react-native";
+import { Container, Content} from "native-base";
+import {  StyleSheet} from "react-native";
 import Details from "../components/weather/Details";
 import Chart from "../components/chart/Chart";
 

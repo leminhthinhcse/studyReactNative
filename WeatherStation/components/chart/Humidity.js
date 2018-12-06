@@ -1,11 +1,7 @@
 import React from "react";
-import {Text, View, Dimensions, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph
+  LineChart
 } from "react-native-chart-kit";
 import {firebaseApp} from '../firebaseConfig.js';
 

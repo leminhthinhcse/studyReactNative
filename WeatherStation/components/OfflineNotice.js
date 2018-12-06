@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, NetInfo, Dimensions, StyleSheet } from 'react-native';
-import {Toast} from 'native-base';
 
 
 const { width } = Dimensions.get('window');
@@ -35,13 +34,12 @@ class OfflineNotice extends Component {
     NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
   }
 
-  handleConnectivityChange = isConnected => {
+  handleConnectivityChange =  isConnected => {
       if (!isConnected) {
-        
         this.setState({component: <ShowOfflineSign />});
       } else {
-        this.timeoutHandle = setTimeout(()=>{
-          this.setState({component: null});
+       this.timeoutHandle = setTimeout( ()=>{
+         this.setState({component: null});
         }, 3000);
         this.setState({component: <ShowOnlineSign />});
       }
