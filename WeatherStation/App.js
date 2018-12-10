@@ -6,6 +6,7 @@
  * @flow
  */
 import React, {Component} from 'react';
+import codePush from 'react-native-code-push';
 import { View} from 'react-native'
 import BottomNavigation, {
   FullTab
@@ -16,9 +17,10 @@ import Widgets from './screen/Widgets';
 import Settings from './screen/Settings';
 
 import OfflineNotice from './components/OfflineNotice';
+const codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_START };
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   state = {
     activeTab: 'control'
   }
@@ -99,3 +101,7 @@ export default class App extends Component<Props> {
     );
   }
 }
+
+App = codePush(codePushOptions)(App);
+
+export default App;

@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "accordion-collapse-react-native": "^0.1.7",
+    "appcenter": "1.10.0",
+    "appcenter-analytics": "1.10.0",
+    "appcenter-crashes": "1.10.0",
     "axios": "^0.18.0",
     "firebase": "^5.5.9",
     "lyef-switch-button": "^2.0.1",
@@ -15,6 +18,7 @@
     "react": "16.6.1",
     "react-native": "0.57.5",
     "react-native-chart-kit": "^1.2.0",
+    "react-native-code-push": "^5.5.0",
     "react-native-material-bottom-navigation": "^1.0.2",
     "react-native-material-tabs": "^3.8.0",
     "react-native-sparkline": "^1.0.5-beta",

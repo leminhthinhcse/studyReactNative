@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">bSif1d0MoSRcFc8MPfRP3siRX7zxf156ca8f-952f-461a-a334-0dc21d4cf5b8</string>
     <string name="app_name">Weather Station</string>
 </resources>

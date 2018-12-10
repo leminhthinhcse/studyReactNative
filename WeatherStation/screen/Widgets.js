@@ -18,10 +18,12 @@ export default class Weather extends Component {
       timeGot: "...",
       activeSwitch: true,
       threshold:"",
+      light:""
     };
     this.changeBackground = this.changeBackground.bind(this);
     this.database1 = firebaseApp.database();
     this.getData = this.getData.bind(this);
+    this.showStatusLight = this.showStatusLight.bind(this);
   }
 
   componentDidMount(){
@@ -32,10 +34,11 @@ export default class Weather extends Component {
     const that = this;
       this.database1.ref().on('value', function(snapshot) {
         let temp = snapshot.val().Temperature[Object.keys(snapshot.val().Temperature)[Object.keys(snapshot.val().Temperature).length - 1]];
+        let light = snapshot.val().Light[Object.keys(snapshot.val().Light)[Object.keys(snapshot.val().Light).length - 1]];
         let control = snapshot.val().Control;
         let threshold = snapshot.val().Threshold;
         // console.log(control);
-        that.setState({control,threshold});
+        that.setState({control,threshold,light});
         if(control == 1) {
           that.setState({
             activeSwitch: true,
@@ -64,6 +67,8 @@ export default class Weather extends Component {
 
   }
 
+  showStatusLight = (val)=>{if(val) return 'ON'; else return 'OFF';}
+
   render() {
 
     const imgSrc = this.changeBackground();
@@ -88,7 +93,7 @@ export default class Weather extends Component {
                     <Icon size={24} color="white" name="lightbulb" />
                 </View>
                 <View style={{width:"65%", justifyContent: 'center',textAlign:"left"}}>
-                    <Text style={{color: "white"}}>{`Lightning`}</Text>
+                    <Text style={{color: "white"}}>Lightning: {this.showStatusLight(this.state.activeSwitch)}</Text>
                 </View>
                 <View style={{width:"25%", justifyContent: 'center'}}>
                     <Switch 
@@ -96,10 +101,10 @@ export default class Weather extends Component {
                         let k ="";
                         if(val){
                           k="1";
-
                         } else {k="0";}
                         this.database1.ref().update({
                           Control: k,
+                          Threshold: this.state.light,
                         });
                     }} 
                       value={ this.state.activeSwitch} 
